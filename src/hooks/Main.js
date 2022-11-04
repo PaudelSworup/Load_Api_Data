@@ -30,9 +30,11 @@ const Main = ({ allCatVal, post, filterData, limit, load }) => {
             ))
           : "No"}
       </div>
-      <button className="btn" onClick={load}>
-        Load More
-      </button>
+      <div className="button-div">
+        <button className="btn" onClick={load}>
+          Load More
+        </button>
+      </div>
     </>
   );
 };

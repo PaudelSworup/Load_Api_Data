@@ -19,11 +19,11 @@ const DataFetch = () => {
     console.log(category);
 
     if (category === "All") {
-      setPost(post);
-
-      post.map((cur) => {
-        console.log(cur);
-      });
+      // console.log(JSON.parse(localStorage.getItem("data")));
+      const allData = JSON.parse(localStorage.getItem("data"));
+      console.log(allData);
+      setPost(allData);
+      return;
     }
 
     const newItems = post.filter((item) => {
@@ -33,21 +33,13 @@ const DataFetch = () => {
     setPost(newItems);
   };
 
-  // const filterData = (cat) => {
-  //   post.map((cur) => {
-  //     console.log(cur);
-  //   });
-
-  //   const newItems = post.filter((item) => {
-  //     return item.category === cat;
-  //   });
-  //   console.log(newItems);
-  //   setPost(newItems);
-  // };
-  const Load = () => {
+  const load = () => {
     if (post.length > limit) {
       setLimit(limit + 10);
       console.log("hello");
+    } else {
+      alert("no more data");
+      return;
     }
   };
 
@@ -57,7 +49,7 @@ const DataFetch = () => {
       .then((res) => {
         console.log(res.data);
         setPost(res.data);
-        // setBtn(res.data);
+        localStorage.setItem("data", JSON.stringify(res.data));
       })
       .catch((err) => console.log(err));
   }, []);
@@ -68,7 +60,7 @@ const DataFetch = () => {
         post={post}
         filterData={filterData}
         limit={limit}
-        load={Load}
+        load={load}
       />
     </>
   );
