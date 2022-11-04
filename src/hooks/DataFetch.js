@@ -15,6 +15,14 @@ const DataFetch = () => {
     "All",
   ];
 
+  const cat = [
+    ...new Set(
+      post.map((item) => {
+        return item.category;
+      })
+    ),
+  ];
+
   const filterData = (category) => {
     console.log(category);
 
@@ -38,7 +46,7 @@ const DataFetch = () => {
       setLimit(limit + 10);
       console.log("hello");
     } else {
-      alert("no more data");
+      alert(`No more Items is on ${cat} `);
       return;
     }
   };
