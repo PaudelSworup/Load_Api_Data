@@ -2,8 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./api.css";
+import { useNavigate } from "react-router-dom";
 
 const Main = ({ allCatVal, post, filterData, limit, load }) => {
+  const navigate = useNavigate();
   const data = post.slice(0, limit);
   // console.log(data);
   return (
@@ -19,7 +21,11 @@ const Main = ({ allCatVal, post, filterData, limit, load }) => {
         {limit
           ? data.map((cur) => (
               <div className="main-div" key={cur.id}>
-                <img src={cur.image} alt="img" />
+                <img
+                  src={cur.image}
+                  alt="img"
+                  onClick={() => navigate(`/detail/${cur.id}`)}
+                />
                 <p className="title">{cur.title}</p>
                 <p>
                   <FontAwesomeIcon className="icons" icon={faStar} />
