@@ -1,0 +1,87 @@
+
+.main{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 10px;
+}
+
+.main-div{
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.title{
+    letter-spacing: 1.5px;
+}
+
+
+img{
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.icons{
+    color: yellow;
+}
+
+.buttons{
+    display:flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.buttons > button{
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+.btn{
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;  
+}
+
+@media(max-width:196px) {
+    .buttons{
+        display: grid;
+        
+    }
+}
+
+@media(max-width: 455px){
+    .main{
+        grid-template-columns: auto auto;
+    }
+
+    .buttons{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media(max-width: 388px){
+    .main{
+        grid-template-columns: auto;
+    }
+}
+
